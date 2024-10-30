@@ -1,14 +1,45 @@
 from django.shortcuts import render
 
+from django.views.generic import ListView, DetailView
+from core.models import Category, Product
 
-def index(request):
-    return render(request, "index.html")
 
-def products(request):
-    return render(request, "products.html")
+def home(request):
+    """
+    Displays the homepage.
+    """
+    featured_products = Product.objects.filter(
+        is_featured=True, is_active=True
+    ).order_by("-created_at")[:6]
+    context = {
+        "featured_products": featured_products,
+    }
+    return render(request, "home/index.html", context)
 
-def productDetails(request):
-    return render(request, "product_details.html")
+
+class ProductListView(ListView):
+    model = Product
+    template_name = "home/products.html"
+    context_object_name = "products"
+    paginate_by = 16  # Display 16 products per page
+
+    def get_queryset(self):
+        return Product.objects.filter(is_active=True).order_by("-created_at")
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "home/product_detail.html"
+    context_object_name = "product"
+
 
 def contactUs(request):
     return render(request, "contact_us.html")
+
+
+def product_care_guides(request):
+    return render(request, "home/product_care_guides.html")
+
+
+def fashion_consultations(request):
+    return render(request, "home/fashion_consultations.html")
