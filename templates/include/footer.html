@@ -3,31 +3,31 @@
 <div class="container mx-auto bg-white">
   <footer class="bg-white dark:bg-gray-900">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-      <div class="md:flex md:justify-start" dir="rtl">
-        <div class="mb-6 md:mb-0 ml-16">
-          <a href="https://flowbite.com/" class="flex items-center"> <img src="{% static "images/logo.png" %}" class="h-20" alt="FlowBite Logo" /> </a>
+      <div class="flex md:justify-start md:flex-row flex-col md:items-start items-center" dir="rtl">
+        <div class="mb-6 md:mb-0 md:ml-24 justify-center">
+          <a href="https://flowbite.com/" class="flex items-center"> <img src="{% static "images/logo.png" %}" class="h-28" alt="FlowBite Logo" /> </a>
         </div>
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">روابط مهمة</h2>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 md:text-right text-center">
+          <div class="md:ml-24">
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">روابط</h2>
             <ul class="text-gray-500 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a href="https://flowbite.com/" class="hover:underline">الصفحة الرئيسية</a>
-              </li>
-              <li>
-                <a href="https://tailwindcss.com/" class="hover:underline">من نحن</a>
+                <a href="{% url "home:index" %}" class="hover:underline">الصفحة الرئيسية</a>
               </li>
               <li class="mb-4">
-                <a href="https://flowbite.com/" class="hover:underline">تسوق</a>
-              </li>
-              <li>
-                <a href="https://tailwindcss.com/" class="hover:underline">استشارات الأزياء</a>
+                <a href="{% url "home:about_us" %}#about_us" class="hover:underline">من نحن</a>
               </li>
               <li class="mb-4">
-                <a href="https://flowbite.com/" class="hover:underline">ارشادات العناية بالمنتج</a>
+                <a href="{% url "home:products" %}" class="hover:underline">تسوق</a>
               </li>
-              <li>
-                <a href="https://tailwindcss.com/" class="hover:underline">تواصل معنا</a>
+              {% comment %} <li class="mb-4">
+                <a href="{% url "home:contact_us" %}" class="hover:underline">استشارات الأزياء</a>
+              </li> {% endcomment %}
+              <li class="mb-4">
+                <a href="{% url "home:product_care_guides" %}" class="hover:underline">ارشادات العناية بالمنتج</a>
+              </li>
+              <li class="mb-4">
+                <a href="{% url "home:contact_us" %}" class="hover:underline">تواصل معنا</a>
               </li>
             </ul>
           </div>

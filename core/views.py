@@ -55,7 +55,6 @@ def contact_us(request, slug=None):
             if product:
                 contact.product = product # associate the contact with product
             contact.save() # Now save 
-            print(product)
             messages.success(request, 'تم إرسال رسالتك بنجاح!')
             if product:
                 return redirect('home:product_detail', slug=product.slug)

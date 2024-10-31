@@ -1233,6 +1233,10 @@ input:checked + .toggle-bg {
   margin-left: auto;
 }
 
+.ml-24 {
+  margin-left: 6rem;
+}
+
 .block {
   display: block;
 }
@@ -1327,6 +1331,10 @@ input:checked + .toggle-bg {
 
 .h-modal {
   height: calc(100% - 2rem);
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .w-1\/2 {
@@ -1469,6 +1477,10 @@ input:checked + .toggle-bg {
 
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -2540,6 +2552,10 @@ h1, h2, h3, p, a{
     margin-top: 0px;
   }
 
+  .md\:ml-24 {
+    margin-left: 6rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -2574,6 +2590,18 @@ h1, h2, h3, p, a{
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
+  .md\:items-center {
+    align-items: center;
   }
 
   .md\:justify-start {
@@ -2617,6 +2645,14 @@ h1, h2, h3, p, a{
   .md\:py-40 {
     padding-top: 10rem;
     padding-bottom: 10rem;
+  }
+
+  .md\:text-left {
+    text-align: left;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:text-justify {
