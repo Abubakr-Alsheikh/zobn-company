@@ -46,6 +46,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)  # Assuming phone number is a string
     message = models.TextField()
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)  # Add ForeignKey
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

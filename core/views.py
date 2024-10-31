@@ -43,6 +43,20 @@ def contact_us(request):
         form = ContactForm()
     return render(request, 'home/contact_us.html', {'form': form})
 
+
+def product_contact_us(request, slug):
+    product = Product.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.instance.product = product  # Associate contact with the product
+            form.save()
+            return redirect('home:product_detail', slug=product.slug)
+    else:
+        form = ContactForm()
+    return render(request, 'home/product_contact_us.html', {'form': form, 'product': product})
+
 def product_care_guides(request):
     return render(request, "home/product_care_guides.html")
 
