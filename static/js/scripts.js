@@ -6,9 +6,9 @@ window.addEventListener("scroll", function () {
 
   // Change header background
   if (scrollPosition > 0) {
-    headerContainer.classList.add("bg-white", "dark:bg-gray-900", "border-b", "border-gray-200", "dark:border-gray-700");
+    headerContainer.classList.add("bg-white", "dark:bg-gray-900", "border-b-2", "border-gray-200", "dark:border-gray-700");
   } else {
-    headerContainer.classList.remove("bg-white", "dark:bg-gray-900", "border-b", "border-gray-200", "dark:border-gray-700");
+    headerContainer.classList.remove("bg-white", "dark:bg-gray-900", "border-b-2", "border-gray-200", "dark:border-gray-700");
   }
 
   // Change logo size
