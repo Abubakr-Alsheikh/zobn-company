@@ -1,8 +1,9 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from django.views.generic import ListView, DetailView
 from core.forms import ContactForm
 from core.models import Category, Product
+from django.contrib import messages
 
 
 def home(request):
@@ -32,30 +33,42 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = "home/product_detail.html"
     context_object_name = "product"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['show_modal'] = len(messages.get_messages(self.request)) > 0
+        return context
 
-def contact_us(request):
+def contact_us(request, slug=None):
+    """
+    Handles both general and product-specific contact forms.
+    """
+    product = None
+    print(slug)
+    if slug:
+        product = get_object_or_404(Product, slug=slug)  # Use get_object_or_404 for better error handling
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('home:contact_us')
+            contact = form.save(commit=False)  # Don't save yet
+            if product:
+                contact.product = product # associate the contact with product
+            contact.save() # Now save 
+            print(product)
+            messages.success(request, 'تم إرسال رسالتك بنجاح!')
+            if product:
+                return redirect('home:product_detail', slug=product.slug)
+            else:
+                return redirect('home:contact_us')  # Redirect to the general contact page
     else:
         form = ContactForm()
-    return render(request, 'home/contact_us.html', {'form': form})
 
+    context = {'form': form, 'show_modal': len(messages.get_messages(request)) > 0 }  # Check for existing messages from GET request
+    if product:
+        context['product'] = product
 
-def product_contact_us(request, slug):
-    product = Product.objects.get(slug=slug)
-
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.instance.product = product  # Associate contact with the product
-            form.save()
-            return redirect('home:product_detail', slug=product.slug)
-    else:
-        form = ContactForm()
-    return render(request, 'home/product_contact_us.html', {'form': form, 'product': product})
+    return render(request, 'home/contact_us.html', context)
 
 def product_care_guides(request):
     return render(request, "home/product_care_guides.html")
