@@ -15,7 +15,7 @@ urlpatterns = [
     path('<slug:slug>/contact-us/', contact_us, name='product_contact_us'),
     path('product-care-guides/', product_care_guides, name='product_care_guides'),
     path('fashion-consultations/', fashion_consultations, name='fashion_consultations'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:  # Only serve media files during development
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:  # Only serve media files during development
+#     urlpatterns 
