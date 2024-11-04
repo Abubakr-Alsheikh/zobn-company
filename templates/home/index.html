@@ -1,10 +1,10 @@
 {% extends "_base.html" %} {% load static %} {% block content %}
 
-<section class="h-svh bg-cover bg-right bg-no-repeat bg-blend-multiply" style="background-image: url({% static 'images/background_3.jpg' %})">
+<section class="h-svh bg-cover bg-left bg-no-repeat bg-blend-multiply" style="background-image: url({% static 'images/background.jpg' %})">
   <div class="mx-auto max-w-screen-xl px-4 py-56 text-center md:text-justify lg:py-56" dir="rtl">
     <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-primary-700 md:text-5xl lg:text-5xl">مرحبًا بكم في شركة زبون</h1>
     <div class="flex w-full justify-start text-justify">
-      <p class="mb-8 max-w-2xl text-lg font-normal text-primary-600 lg:text-xl" style="line-height: 2">حيث نقدم لكم الازياء التي تناسب كل الأذواق والمناسبات. فريقنا من خبراء الموضة مستعد لمساعدتكم في اختيار الأزياء المثالية التي تعكس أسلوبكم الفريد وتبرز جمالكم. سواء كنتم تبحثون عن إطلالة يومية، مناسبة خاصة، أو حتى استشارة شاملة حول تنسيق الملابس، نحن هنا لنقدم لكم الدعم والإلهام. انضموا إلينا في رحلة اكتشاف الأزياء واستمتعوا بتجربة تسوق مميزة تلبي احتياجاتكم.</p>
+      <p class="mb-8 max-w-2xl text-lg font-normal text-primary-700 lg:text-xl" style="line-height: 2">حيث نقدم لكم الازياء التي تناسب كل الأذواق والمناسبات. فريقنا من خبراء الموضة مستعد لمساعدتكم في اختيار الأزياء المثالية التي تعكس أسلوبكم الفريد وتبرز جمالكم. سواء كنتم تبحثون عن إطلالة يومية، مناسبة خاصة، أو حتى استشارة شاملة حول تنسيق الملابس، نحن هنا لنقدم لكم الدعم والإلهام. انضموا إلينا في رحلة اكتشاف الأزياء واستمتعوا بتجربة تسوق مميزة تلبي احتياجاتكم.</p>
     </div>
     <div class="flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0">
       <a href="{% url "home:products" %}" class="inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
