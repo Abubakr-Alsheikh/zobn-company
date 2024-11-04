@@ -11,11 +11,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
-    list_display = ('name', 'slug', 'category', 'price', 'is_featured', 'is_active', 'created_at')
-    list_editable = ('category', 'price', 'is_featured', 'is_active')
+    list_display = ('name', 'category', 'is_featured', 'is_active', 'created_at') # Correct `price` to `price_iqd`
+    list_editable = ('is_featured', 'is_active') # Remove `price`
     list_filter = ('category', 'is_featured', 'is_active')
-    search_fields = ('name', 'description')
+    search_fields = ('name', 'description', 'available_sizes', 'available_colors')
+    prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
