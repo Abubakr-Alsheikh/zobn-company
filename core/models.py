@@ -24,7 +24,6 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product_images/', blank=True)
     price_iqd = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price (IQD)", blank=True, null=True)
     price_aed = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price (AED)", blank=True, null=True)
-    details = models.TextField(verbose_name="Product Details", blank=True, null=True)
     available_sizes = models.CharField(max_length=255, blank=True, verbose_name="Available Sizes")
     available_colors = models.CharField(max_length=255, blank=True, verbose_name="Available Colors")
     processing_time = models.CharField(max_length=255, blank=True, verbose_name="Processing Time")
