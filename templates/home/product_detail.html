@@ -22,7 +22,6 @@
 
         <!-- Display Additional Product Details -->
         <p class="text-gray-500 dark:text-gray-400">
-          <strong>تفاصيل المنتج:</strong> {% if product.details %} {{ product.details }} {% else %} غير متوفرة تفاصيل حالياً. {% endif %}<br />
           <strong>القياسات المتوفرة:</strong> {% if product.available_sizes %} {{ product.available_sizes }} {% else %} غير متوفرة تفاصيل حالياً. {% endif %}<br />
           <strong>الالوان المتوفرة:</strong> {% if product.available_colors %} {{ product.available_colors }} {% else %} غير متوفرة تفاصيل حالياً. {% endif %}<br />
           <strong>مدة انجاز الطلب:</strong> {% if product.processing_time %} {{ product.processing_time }} {% else %} غير متوفرة تفاصيل حالياً. {% endif %}<br />
