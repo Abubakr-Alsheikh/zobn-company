@@ -1,21 +1,24 @@
 from django.urls import path
-from .views import contact_us, fashion_consultations, home, ProductDetailView, ProductListView, product_care_guides
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path, include
+from core import views
 
 app_name= "home"
 urlpatterns = [
-    path("", home, name="index"),
-    path('about-us/', home, name='about_us'),
-    path("products", ProductListView.as_view(), name="products"),
-    path('product-detail/<slug:slug>/', ProductDetailView.as_view(), name='product_detail'),
-    path("contact-us", contact_us, name="contact_us"),
-    path('<slug:slug>/contact-us/', contact_us, name='product_contact_us'),
-    path('product-care-guides/', product_care_guides, name='product_care_guides'),
-    path('fashion-consultations/', fashion_consultations, name='fashion_consultations'),
+    path("", views.home, name="index"),
+    path('about-us/', views.home, name='about_us'),
+    path("products", views.ProductListView.as_view(), name="products"),
+    path('product-detail/<slug:slug>/', views.ProductDetailView.as_view(), name='product_detail'),
+    path(r'^product-detail/(?P<slug>[-\w]+)/$', views.ProductDetailView.as_view(), name='product_detail'),
+    path("contact-us", views.contact_us, name="contact_us"),
+    path('<slug:slug>/contact-us/', views.contact_us, name='product_contact_us'),
+    path(r'^(?P<slug>[-\w]+)/contact-us/$', views.contact_us, name='product_contact_us'),
+    path('product-care-guides/', views.product_care_guides, name='product_care_guides'),
+    path('fashion-consultations/', views.fashion_consultations, name='fashion_consultations'),
+    # dashbaord
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/products/', views.product_list, name='product_list'),
+    path('dashboard/products/create/', views.product_create, name='product_create'),
+    path('dashboard/products/<int:product_id>/edit/', views.product_edit, name='product_edit'),
+    path('dashboard/products/<int:product_id>/delete/', views.product_delete, name='product_delete'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# if settings.DEBUG:  # Only serve media files during development
-#     urlpatterns 
