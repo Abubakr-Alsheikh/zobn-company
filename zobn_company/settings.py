@@ -115,7 +115,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-LOGIN_REDIRECT_URL = 'home:dashboard' # Redirect after successful login
+LOGIN_REDIRECT_URL = 'home:product_list' # Redirect after successful login
 LOGOUT_REDIRECT_URL = 'login'    # Redirect after logout (optional)
 
 
