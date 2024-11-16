@@ -1,6 +1,6 @@
 {% extends "_base_dashboard.html" %} {% load static %} {% block content %}
 <div class="antialiased dark:bg-gray-900" dir="rtl">
-  <nav class="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white px-4 py-2.5 dark:border-gray-700 dark:bg-gray-800">
+  <nav class="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white px-4 py-2.5 dark:border-gray-700 dark:bg-gray-800" dir="ltr">
     <div class="flex flex-wrap items-center justify-between">
       <div class="flex items-center justify-start">
         <button data-drawer-target="drawer-navigation" data-drawer-toggle="drawer-navigation" aria-controls="drawer-navigation" class="mr-2 cursor-pointer rounded-lg p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700 dark:focus:ring-gray-700 md:hidden">
@@ -20,7 +20,7 @@
           <img class="h-8 w-8 rounded-full" src="{% static "images/logo.png" %}" alt="user photo" />
         </button>
         <!-- Dropdown menu -->
-        <div class="z-50 my-4 hidden w-56 list-none divide-y divide-gray-100 rounded rounded-xl bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700" id="dropdown">
+        <div class="z-50 my-4 hidden w-56 list-none divide-y divide-gray-100 rounded rounded-xl bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700" id="dropdown" dir="rtl">
           <div class="px-4 py-3">
             <span class="block text-sm font-semibold text-gray-900 dark:text-white">Zbon</span>
           </div>
